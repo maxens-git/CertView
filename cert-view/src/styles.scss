@@ -1,0 +1,17 @@
+@use "bootstrap/scss/bootstrap" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+html, body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--p-surface-ground);
+  color: var(--p-text-color);
+}
+
+.p-panel, .p-card, .p-datatable, .p-dialog {
+  background-color: var(--p-surface-card);
+  color: var(--p-text-color);
+}

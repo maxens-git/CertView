@@ -1,0 +1,58 @@
+<p-panel>
+  <div class="d-flex flex-column gap-3">
+
+    <div class="d-flex align-items-center gap-3">
+      <label for="domain" class="mb-0" style="min-width: 160px;">Domain name</label>
+      <input id="domain" type="text" pInputText [(ngModel)]="form.domain" placeholder="example.com" class="w-100" />
+    </div>
+
+    <div class="d-flex align-items-start gap-3">
+      <label for="publicKey" class="pt-2" style="min-width: 160px;">Certificate (Public Key)</label>
+      <div class="w-100">
+        <textarea id="publicKey" pInputText rows="6" [(ngModel)]="form.publicKey" placeholder="-----BEGIN CERTIFICATE-----..." class="w-100"></textarea>
+        <div class="mt-2">
+          <p-fileUpload
+            name="publicCertFile"
+            mode="basic"
+            chooseLabel="Load the certificate"
+            accept=".crt,.pem"
+            (onSelect)="onFileSelect($event, 'publicKey')"
+            auto
+            customUpload/>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start gap-3">
+      <label for="privateKey" class="pt-2" style="min-width: 160px;">Private key</label>
+      <div class="w-100">
+        <textarea id="privateKey" pInputText rows="6" [(ngModel)]="form.privateKey" placeholder="-----BEGIN PRIVATE KEY-----..." class="w-100"></textarea>
+        <div class="mt-2">
+          <p-fileUpload
+            name="privateKeyFile"
+            mode="basic"
+            chooseLabel="Load the private key"
+            accept=".key,.pem"
+            (onSelect)="onFileSelect($event, 'privateKey')"
+            auto
+            customUpload/>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="text-end">
+      <button
+        pButton
+        type="button"
+        label="Add"
+        icon="pi pi-check"
+        class="p-button-primary"
+        (click)="submit()"
+        [disabled]="!form.domain || !form.publicKey || !form.privateKey">
+      </button>
+    </div>
+
+  </div>
+</p-panel>

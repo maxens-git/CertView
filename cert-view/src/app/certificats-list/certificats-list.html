@@ -1,0 +1,52 @@
+<p-panel styleClass="m-4">
+  <ng-template pTemplate="header">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <span class="fw-bold">List of certificates</span>
+      <button pButton type="button" icon="pi pi-plus" (click)="openModal()" class="p-button-sm p-button-primary"></button>
+    </div>
+  </ng-template>
+
+  <p-table [value]="certificats" [paginator]="true" [rows]="10" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Domain</th>
+        <th>Authority</th>
+        <th>Validity</th>
+        <th>Issued date</th>
+        <th>Expiration date</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cert>
+      <tr>
+        <td>{{ cert.id }}</td>
+        <td>{{ cert.domain }}</td>
+        <td>{{ cert.authority }}</td>
+        <td>
+          <span [ngClass]="{
+              'badge-valid': cert.valid,
+              'badge-expired': !cert.valid
+            }">
+            {{ cert.valid ? 'Valid' : 'Expired' }}
+          </span>
+        </td>
+        <td>{{ cert.issuedDate | date: 'dd/MM/yy' }}</td>
+        <td>{{ cert.expirationDate | date: 'dd/MM/yy' }}</td>
+        <td>
+          <button 
+              pButton 
+              type="button" 
+              icon="pi pi-download" 
+              class="p-button-sm p-button-info">
+          </button>
+        </td>
+      </tr>
+      
+    </ng-template>
+  </p-table>
+</p-panel>
+
+<app-modal [title]="'Ajouter un certificat'">
+  <app-add-certificat (certificatAdded)="closeModal()"></app-add-certificat>
+</app-modal>

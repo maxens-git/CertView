@@ -1,0 +1,11 @@
+<div class="m-4">
+  <p-menubar [model]="menuItems">
+    <ng-template pTemplate="end">
+      <div class="d-flex align-items-center">
+        <p-toggleswitch [(ngModel)]="darkMode" class="me-3"/>
+        <button pButton icon="pi pi-cog" severity="secondary"></button>
+      </div>
+      
+    </ng-template>
+  </p-menubar>
+</div>
