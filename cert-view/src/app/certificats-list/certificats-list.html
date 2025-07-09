@@ -24,12 +24,8 @@
         <td>{{ cert.domain }}</td>
         <td>{{ cert.authority }}</td>
         <td>
-          <span [ngClass]="{
-              'badge-valid': cert.valid,
-              'badge-expired': !cert.valid
-            }">
-            {{ cert.valid ? 'Valid' : 'Expired' }}
-          </span>
+          <p-badge *ngIf="cert.valid" value="Valid" badgeSize="large" severity="success"></p-badge>
+          <p-badge *ngIf="!cert.valid" value="Expired" badgeSize="large" severity="danger"></p-badge>
         </td>
         <td>{{ cert.issuedDate | date: 'dd/MM/yy' }}</td>
         <td>{{ cert.expirationDate | date: 'dd/MM/yy' }}</td>

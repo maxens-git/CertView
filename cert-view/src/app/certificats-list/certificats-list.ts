@@ -7,6 +7,7 @@ import { PanelModule } from 'primeng/panel';
 import { Modal } from "../shared/components/modal/modal";
 import { AddCertificat } from "../add-certificat/add-certificat";
 import { ButtonModule } from 'primeng/button';
+import { BadgeModule } from 'primeng/badge';
 
 @Component({
   selector: 'app-certificats-list',
@@ -17,7 +18,8 @@ import { ButtonModule } from 'primeng/button';
     PanelModule,
     Modal,
     AddCertificat,
-    ButtonModule
+    ButtonModule,
+    BadgeModule
 ],
   templateUrl: './certificats-list.html',
   styleUrls: ['./certificats-list.scss']
