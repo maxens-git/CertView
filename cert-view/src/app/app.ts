@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { Header } from "./header/header";
-import { StatsPanel } from "./stats-panel/stats-panel";
-import { CertificatsList } from "./certificats-list/certificats-list";
+import { Home} from './pages/home/home';
 
 @Component({
   selector: 'app-root',
   imports: [
-    Header,
-    StatsPanel,
-    CertificatsList
-],
+    Home
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
