@@ -28,7 +28,7 @@ export class CertificatsList {
   
   @ViewChild(Modal) modal!: Modal;
 
-  public certificats: Certificate[] = [];
+  protected certificats: Certificate[] = [];
 
   constructor(private certificatService: CertificatService) {}
   
